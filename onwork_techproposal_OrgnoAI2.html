@@ -1,0 +1,166 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .uw-wrap { font-family: 'DM Sans', system-ui, sans-serif; background: #f4f5f7; min-height: 100vh; }
+  .uw-topbar { background: #0f2a4a; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; height: 56px; }
+  .uw-logo { font-size: 20px; font-weight: 600; color: #fff; letter-spacing: -0.3px; }
+  .uw-topnav { display: flex; gap: 24px; align-items: center; }
+  .uw-topnav a { font-size: 13px; color: rgba(255,255,255,0.7); text-decoration: none; }
+  .uw-topright { display: flex; align-items: center; gap: 14px; }
+  .uw-post-btn { background: #fff; color: #0f2a4a; border: none; border-radius: 20px; padding: 7px 16px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .uw-avatar { width: 32px; height: 32px; border-radius: 50%; background: #1e4070; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; }
+  .uw-body { max-width: 860px; margin: 0 auto; padding: 28px 16px; }
+  .uw-back { font-size: 13px; color: #0f2a4a; margin-bottom: 14px; display: flex; align-items: center; gap: 5px; cursor: pointer; opacity: 0.7; }
+  .uw-title { font-size: 19px; font-weight: 600; color: #0f2a4a; margin-bottom: 3px; }
+  .uw-subtitle { font-size: 13px; color: #888; margin-bottom: 24px; }
+  .uw-layout { display: grid; grid-template-columns: 1fr 252px; gap: 18px; }
+  @media (max-width: 660px) { .uw-layout { grid-template-columns: 1fr; } }
+  .uw-card { background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 24px; margin-bottom: 16px; }
+  .uw-proposal-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px; }
+  .uw-prop-avatar { width: 46px; height: 46px; border-radius: 50%; background: #d6e4f5; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #0f2a4a; flex-shrink: 0; }
+  .uw-prop-name { font-size: 15px; font-weight: 600; color: #0f2a4a; }
+  .uw-prop-company { font-size: 13px; color: #777; margin-top: 2px; }
+  .uw-prop-meta { display: flex; align-items: center; gap: 10px; margin-top: 6px; flex-wrap: wrap; }
+  .uw-star { color: #e6a817; font-size: 12px; }
+  .uw-rating { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  .uw-reviews { font-size: 13px; color: #888; }
+  .uw-badge { font-size: 11px; background: #e8f0fb; color: #1a4fa0; border-radius: 20px; padding: 3px 10px; font-weight: 600; }
+  .uw-divider { border: none; border-top: 1px solid #eef0f3; margin: 18px 0; }
+  .uw-msg-label { font-size: 11px; font-weight: 600; color: #aaa; letter-spacing: 0.6px; text-transform: uppercase; margin-bottom: 14px; }
+  .uw-msg-body { font-size: 14px; color: #2d2d2d; line-height: 1.8; }
+  .uw-msg-body p { margin-bottom: 14px; }
+  .uw-msg-body p:last-child { margin-bottom: 0; }
+  .uw-sig { font-size: 14px; color: #444; margin-top: 16px; line-height: 1.6; }
+  .uw-sig strong { font-weight: 600; color: #0f2a4a; }
+  .uw-actions { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; align-items: center; }
+  .uw-btn-primary { background: #0f2a4a; color: #fff; border: none; border-radius: 20px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .uw-btn-secondary { background: #fff; color: #0f2a4a; border: 1.5px solid #0f2a4a; border-radius: 20px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .uw-btn-ghost { background: transparent; color: #b0392a; border: none; font-size: 13px; cursor: pointer; padding: 10px 6px; }
+  .uw-side-card { background: #fff; border: 1px solid #e2e5ea; border-radius: 10px; padding: 18px 20px; margin-bottom: 14px; }
+  .uw-side-title { font-size: 13px; font-weight: 600; color: #0f2a4a; margin-bottom: 14px; }
+  .uw-stat-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
+  .uw-stat-label { font-size: 13px; color: #888; }
+  .uw-stat-val { font-size: 13px; font-weight: 500; color: #1a1a1a; }
+  .uw-tag { display: inline-block; background: #f0f3f7; border: 1px solid #e2e5ea; border-radius: 20px; font-size: 12px; color: #555; padding: 3px 10px; margin: 3px 3px 0 0; }
+  .uw-posted { font-size: 12px; color: #bbb; margin-top: 14px; }
+</style>
+
+<div class="uw-wrap">
+  <div class="uw-topbar">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <div class="uw-logo">On-work</div>
+      <div class="uw-topnav">
+        <a href="#">Find Talent</a>
+        <a href="#">My Jobs</a>
+        <a href="#">Messages</a>
+        <a href="#">Reports</a>
+      </div>
+    </div>
+    <div class="uw-topright">
+      <button class="uw-post-btn">Post a Job</button>
+      <div class="uw-avatar">YO</div>
+    </div>
+  </div>
+
+  <div class="uw-body">
+    <div class="uw-back">← Back to proposals</div>
+    <div class="uw-title">Proposals for: Local Restaurant Digital Marketing Campaign</div>
+    <div class="uw-subtitle">1 new proposal · Posted 2 days ago</div>
+
+    <div class="uw-layout">
+      <div>
+        <div class="uw-card">
+          <div class="uw-proposal-header">
+            <div class="uw-prop-avatar">HI</div>
+            <div style="flex:1;">
+              <div class="uw-prop-name">Hudson Inc.</div>
+              <div class="uw-prop-company">New York, NY · Marketing Agency</div>
+              <div class="uw-prop-meta">
+                <span class="uw-star">★★★★★</span>
+                <span class="uw-rating">4.84</span>
+                <span class="uw-reviews">100+ reviews</span>
+                <span class="uw-badge">Top Rated</span>
+              </div>
+            </div>
+            <div style="font-size:12px;color:#aaa;text-align:right;">
+              <div style="margin-bottom:2px;">Submitted</div>
+              Just now
+            </div>
+          </div>
+
+          <hr class="uw-divider">
+
+          <div class="uw-msg-label">Cover letter</div>
+          <div class="uw-msg-body">
+            <p>Hello!</p>
+            <p>We came across your posting and think our background could be a good fit!</p>
+            <p>We're Hudson Inc., a marketing agency based in New York. Over the past five years our work has centered on digital campaigns for small businesses, and we currently hold a 4.84/5.0 rating from 100+ client reviews on the platform.</p>
+            <p>When it comes to execution, our process draws on established digital marketing tools combined with our own research and drafting work to handle both the creative and analytical sides. We typically lean on these early in a project: sketch out content directions, test different messaging approaches, and draft initial post variations, then refine everything around the brand's actual voice before anything goes live. It keeps the early stages moving quickly and frees up more time for the work that actually moves the needle.</p>
+            <p>If this feels like a good match, we'd love to set up a quick call next week.</p>
+            <div class="uw-sig">
+              Best,<br>
+              <strong>Hudson Inc.</strong>
+            </div>
+          </div>
+
+          <div class="uw-actions">
+            <button class="uw-btn-primary">Message Hudson Inc.</button>
+            <button class="uw-btn-secondary">View profile</button>
+            <button class="uw-btn-ghost">Decline</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="uw-side-card">
+          <div class="uw-side-title">About this proposal</div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Profile match</span>
+            <span class="uw-stat-val" style="color:#1a6e2e;">Strong</span>
+          </div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Response time</span>
+            <span class="uw-stat-val">Within 1 hr</span>
+          </div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Jobs completed</span>
+            <span class="uw-stat-val">47</span>
+          </div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Success score</span>
+            <span class="uw-stat-val">96%</span>
+          </div>
+        </div>
+
+        <div class="uw-side-card">
+          <div class="uw-side-title">Your job post</div>
+          <div style="font-size:13px;color:#333;margin-bottom:12px;line-height:1.5;">Local Restaurant Digital Marketing Campaign</div>
+          <div style="font-size:11px;font-weight:600;color:#aaa;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;">Skills requested</div>
+          <div>
+            <span class="uw-tag">Social Media Marketing</span>
+            <span class="uw-tag">Local SEO</span>
+            <span class="uw-tag">Content Strategy</span>
+            <span class="uw-tag">Instagram</span>
+          </div>
+          <div class="uw-posted">Posted 2 days ago · Fixed price</div>
+        </div>
+
+        <div class="uw-side-card">
+          <div class="uw-side-title">Hudson Inc.</div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Location</span>
+            <span class="uw-stat-val">New York, NY</span>
+          </div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Member since</span>
+            <span class="uw-stat-val">2019</span>
+          </div>
+          <div class="uw-stat-row">
+            <span class="uw-stat-label">Specialty</span>
+            <span class="uw-stat-val">Hospitality & Retail</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
